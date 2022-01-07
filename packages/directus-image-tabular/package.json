@@ -1,0 +1,26 @@
+{
+	"name": "@directus-extension/image-tabular-layout",
+	"version": "1.0.0",
+	"keywords": [
+		"directus",
+		"directus-extension",
+		"directus-custom-layout"
+	],
+	"directus:extension": {
+		"type": "layout",
+		"path": "../../dist/layouts/image-tabular-layout/index.js",
+		"source": "src/index.ts",
+		"host": "^9.4.2"
+	},
+	"scripts": {
+		"build": "directus-extension build"
+	},
+	"devDependencies": {
+		"@directus-extensions/shared": "*",
+		"@directus/extensions-sdk": "9.4.2",
+		"sass": "^1.45.2",
+		"typescript": "^4.5.4",
+		"vue": "^3.2.26",
+		"vuedraggable": "^2.24.3"
+	}
+}

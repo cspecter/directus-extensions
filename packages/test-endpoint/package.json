@@ -1,0 +1,23 @@
+{
+	"name": "@directus-extensions/test-endpoint",
+	"version": "1.0.0",
+	"keywords": [
+		"directus",
+		"directus-extension",
+		"directus-custom-endpoint"
+	],
+	"directus:extension": {
+		"type": "endpoint",
+		"path": "../../dist/endpoints/test-endpoint/index.js",
+		"source": "src/index.ts",
+		"host": "9.4.0"
+	},
+	"scripts": {
+		"build": "directus-extension build"
+	},
+	"devDependencies": {
+		"@directus/extensions-sdk": "9.4.0",
+		"@types/node": "^17.0.7",
+		"typescript": "^4.5.4"
+	}
+}
