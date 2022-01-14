@@ -25,9 +25,9 @@ import { defineComponent, PropType } from "vue";
 import { Item, ShowSelect } from "@directus/shared/types";
 import FilePreview from "../file-preview";
 import { clone } from 'lodash'
-// import pino from "pino";
+import pino from "pino";
 
-// const logger = pino();
+const logger = pino();
 
 type Sort = {
   by: string | null;

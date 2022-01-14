@@ -9,8 +9,9 @@
     "build-m2o-interface": "yarn workspace @directus-extension/m2o-image-view-interface build",
     "build-m2o-display": "yarn workspace @directus-extension/m2o-image-display build",
     "build-supabase": "yarn workspace @directus-extensions/directus-supabase-api build",
+    "build-m2m-interface": "yarn workspace @directus-extension/list-m2m-image-interfaces build",
     "build-test": "yarn workspace @directus-extensions/test-endpoint build",
-    "build": "yarn run build-image-layout && yarn run build-m2o-interface && yarn run build-m2o-display && yarn run build-supabase"
+    "build": "yarn run build-m2m-interface && yarn run build-image-layout && yarn run build-m2o-interface && yarn run build-m2o-display && yarn run build-supabase"
   },
   "workspaces": {
     "packages": [

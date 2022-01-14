@@ -8,7 +8,7 @@ import { unexpectedError } from '../unexpected-error';
 export default async function uploadSupabaseFile(
 	api: any,
 	useNotificationsStore: any,
-	file: File,
+	files: File[],
 	folder: string,
 	options?: {
 		onProgressChange?: (percentage: number) => void;
@@ -27,7 +27,10 @@ export default async function uploadSupabaseFile(
 	}
 
 	formData.append('folder', folder);
-	formData.append('file', file);
+
+	files.forEach((file, index) => {
+		formData.append(`file${index}`, file);
+	})
 
 	try {
 		let response = await api.post(`/supabase/upload`, formData, {

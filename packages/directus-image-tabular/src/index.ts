@@ -19,9 +19,9 @@ import { LayoutOptions, LayoutQuery, FileType } from './types';
 import { syncRefProperty } from '@directus-extensions/shared/utils/sync-ref-property';
 import { useStores } from '@directus/extensions-sdk'
 import { mimeType } from '@directus-extensions/shared/utils/mime-type';
-// import pino from 'pino'
+import pino from 'pino'
 
-// const logger = pino();
+const logger = pino();
 
 export type Alignment = 'left' | 'center' | 'right';
 
@@ -100,7 +100,7 @@ export default defineLayout<LayoutOptions, LayoutQuery>({
 				const src = `${props.prefix}${title}`
 				const mime = mimeType.lookup(src)
 				const width = 200
-				return { title, src, mime, width, id: item.id }
+				return { ...item, title, src, mime, width }
 			})
 			return []
 		})

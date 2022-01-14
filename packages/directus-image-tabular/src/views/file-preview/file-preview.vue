@@ -4,7 +4,7 @@
     class="file-preview"
     v-bind:class="{ selected: isSelected }"
     id="{{ file.title }}"
-	@click="$emit('item-selected', $event)"
+    @click="$emit('item-selected', $event)"
   >
     <div
       v-if="type === 'image'"
@@ -38,7 +38,10 @@
 <script lang="ts">
 import { defineComponent, computed, ref, PropType } from "vue";
 import { FileType } from "../../types";
-import { ShowSelect } from '@directus/shared/types'
+import { ShowSelect } from "@directus/shared/types";
+import pino from "pino";
+
+const logger = pino();
 
 export default defineComponent({
   props: {
@@ -54,19 +57,22 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
-	showSelect: {
-			type: String as PropType<ShowSelect>,
-			default: 'none',
-		},
+    showSelect: {
+      type: String as PropType<ShowSelect>,
+      default: "none",
+    },
   },
   emits: ["click"],
   setup(props) {
+
     const imgError = ref(false);
 
     const file: FileType = props.file;
 
     const type = computed<"image" | "video" | "audio" | null>(() => {
-      if (file.mime === null) return null;
+      if (!file) return null;
+
+      if (file.mime === null || file.mime === undefined) return null;
 
       if (file.mime.startsWith("image")) {
         return "image";

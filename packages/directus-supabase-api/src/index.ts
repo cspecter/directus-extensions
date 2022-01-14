@@ -76,7 +76,7 @@ export default defineEndpoint({
 						.from(BUCKET)
 						.upload(`${folder}${file.name}`, file.data, {
 							cacheControl: '3600',
-							upsert: false
+							upsert: true
 						}))
 				})
 
