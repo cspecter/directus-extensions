@@ -7,6 +7,7 @@
 		:alt="value && value.title"
 		:class="{ circle }"
 		@error="imageError = true"
+		crossorigin="anonymous"
 	/>
 	<value-null v-else />
 </template>
