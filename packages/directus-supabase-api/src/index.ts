@@ -8,6 +8,8 @@ export default defineEndpoint({
 		const BUCKET = env['SUPABASE_BUCKET']
 		const supabase = createClient(env['SUPABASE_URL'], env['SUPABASE_SECRET'])
 
+		console.log(supabase)
+
 		router.post('/file', (req, res) => {
 			if (!req.accountability.user) {
 				throw new exceptions.ForbiddenException();
